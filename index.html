@@ -2,36 +2,56 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="icon" type="image/png" href="./favicon.png" />
 
-    <!--
-      The interactive-widget=resizes-content fixes the window inner height not being correct
-      until the user taps the page. https://stackoverflow.com/questions/76026292/why-is-window-innerheight-incorrect-until-i-tap-chrome-android
-     -->
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, interactive-widget=resizes-content"
+      content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content"
     />
+
     <title>Emases</title>
-    <script type="module" src="/assets/mockData.js"></script>
-    <script src="/scripts/patch.js"></script>
-    <script type="module" crossorigin src="/scripts/index-CytqvZGY.js" defer></script>
-    <script src="/assets/dev-panel.js" defer></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-DjsUcBaW.css" />
-    <link rel="stylesheet" href="/styles/custom.css" />
+
+    <!-- PATCHES FIRST -->
+    <script src="./scripts/patch.js" defer></script>
+
+    <!-- OPTIONAL: Mock data for dev environments -->
+    <script type="module" src="./assets/mockData.js" defer></script>
+
+    <!-- MAIN APPLICATION -->
+    <script type="module" src="./assets/index.js" defer></script>
+
+    <!-- Developer Tools -->
+    <script src="./assets/dev-panel.js" defer></script>
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="./assets/index.css" />
+    <link rel="stylesheet" href="./styles/custom.css" />
+
+    <!-- INLINE STYLES -->
     <style>
       #theme-toggle:hover {
         background: var(--color-accent);
       }
     </style>
   </head>
+
   <body>
-    <button id="theme-toggle" style="position: fixed; top: 1rem; right: 1rem; background: var(--color-primary); color: var(--color-text);">Toggle Theme</button>
+    <button
+      id="theme-toggle"
+      style="position: fixed; top: 1rem; right: 1rem; background: var(--color-primary); color: var(--color-text);"
+    >
+      Toggle Theme
+    </button>
+
     <div id="root"></div>
+
+    <!-- Theme toggle JS -->
     <script>
-      document.getElementById('theme-toggle').addEventListener('click', () => {
-        document.documentElement.classList.toggle('dark');
-      });
+      document
+        .getElementById('theme-toggle')
+        .addEventListener('click', () => {
+          document.documentElement.classList.toggle('dark');
+        });
     </script>
   </body>
 </html>
