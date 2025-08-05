@@ -7,27 +7,45 @@
 (() => {
   const noop = () => {};
 
-  // Proxy-block Sentry
+  // Disable Sentry early
   window.Sentry = new Proxy({}, {
     get: () => noop,
     set: () => true,
   });
 
-  // Global safety hooks
+  // Disable global error reporting
   window.onerror = noop;
   window.onunhandledrejection = noop;
+  window.addEventListener('error', e => e.stopImmediatePropagation(), true);
+  window.addEventListener('unhandledrejection', e => e.stopImmediatePropagation(), true);
 
-  // Remove debug IDs and breadcrumb tracking
+  // Block Sentry debug IDs
   window._sentryDebugIds = {};
   window._sentryDebugIdIdentifier = "";
 
-  // Optional spoofing
+  // Spoof user agent
   Object.defineProperty(navigator, 'userAgent', {
-    get: () => "DummyBrowser/7.77"
+    get: () => "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 FakeAGI",
+    configurable: true
   });
 
-  // Optional fingerprinting countermeasure
+  // Remove network fingerprinting
+  try {
+    Object.defineProperty(navigator, 'connection', {
+      get: () => undefined,
+      configurable: true
+    });
+  } catch {}
+
+  // Stub performance API
   Object.defineProperty(window, 'performance', {
-    get: () => ({ now: () => 0, timing: {} })
+    get: () => ({
+      now: () => 42,
+      mark: noop,
+      measure: noop,
+      getEntriesByType: () => [],
+      timing: {},
+    }),
+    configurable: true
   });
 })();
