@@ -1,62 +1,14 @@
 @font-face {
-  font-family: SeasonSans;
-  src: url(/assets/SeasonSans-Regular-KU4XNRMW-BcCoxl92.woff2) format("woff2");
-  font-weight: 400;
+  font-family: "Inter";
+  src: local("Inter");
+  font-weight: 100 900;
   font-style: normal;
 }
+
 @font-face {
-  font-family: SeasonSans;
-  src: url(/assets/SeasonSans-RegularItalic-W43V5VPX-ClkUcO3N.woff2)
-    format("woff2");
-  font-style: italic;
-  font-weight: 400;
-}
-@font-face {
-  font-family: SeasonSans;
-  src: url(/assets/SeasonSans-Medium-FXBDEJVB-CrI_CcGm.woff2) format("woff2");
-  font-weight: 500;
-  font-style: normal;
-}
-@font-face {
-  font-family: SeasonSans;
-  src: url(/assets/SeasonSans-SemiBold-3722JP2C-C_E7i86A.woff2) format("woff2");
-  font-weight: 600;
-  font-style: normal;
-}
-@font-face {
-  font-family: SeasonSans;
-  src: url(/assets/SeasonSans-Light-VIPDRQKL-Db70zfeW.woff2) format("woff2");
-  font-weight: 300;
-  font-style: normal;
-}
-@font-face {
-  font-family: SeasonMix;
-  src: url(/assets/SeasonMix-Regular-WISTEK3H-CtyKCUCY.woff2) format("woff2");
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: SeasonMix;
-  src: url(/assets/SeasonMix-Regular-WISTEK3H-CtyKCUCY.woff2) format("woff2");
-  font-style: italic;
-  font-weight: 400;
-}
-@font-face {
-  font-family: SeasonMix;
-  src: url(/assets/SeasonMix-Medium-RHNSX5ZP-Dif8H2P2.woff2) format("woff2");
-  font-weight: 500;
-  font-style: normal;
-}
-@font-face {
-  font-family: SeasonMix;
-  src: url(/assets/SeasonMix-Medium-RHNSX5ZP-Dif8H2P2.woff2) format("woff2");
-  font-weight: 600;
-  font-style: normal;
-}
-@font-face {
-  font-family: SeasonMix;
-  src: url(/assets/SeasonMix-Light-MMJ3N3UM-B0lTl2yR.woff2) format("woff2");
-  font-weight: 300;
+  font-family: "Roboto";
+  src: local("Roboto");
+  font-weight: 100 900;
   font-style: normal;
 }
 .right-3 {
@@ -354,10 +306,10 @@
   vertical-align: middle;
 }
 .font-seasonMix {
-  font-family: SeasonMix, serif;
+  font-family: Roboto, serif;
 }
 .font-seasonSans {
-  font-family: SeasonSans, sans-serif;
+  font-family: Inter, Roboto, sans-serif;
 }
 .text-3xl {
   font-size: 1.875rem;
@@ -1718,7 +1670,7 @@ video {
   will-change: transform;
 }
 :root {
-  font-family: Season, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Inter, Roboto, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   --color-maya-base: 219 224 195;
