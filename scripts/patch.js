@@ -37,6 +37,16 @@
     });
   } catch {}
 
+  // Optional: spoof screen fingerprint
+  Object.defineProperty(window.screen, 'width', { get: () => 1920 });
+  Object.defineProperty(window.screen, 'height', { get: () => 1080 });
+  
+  // Optional: disable WebGL fingerprinting
+  HTMLCanvasElement.prototype.toDataURL = function() {
+    return "data:image/png;base64,fake";
+  };
+
+
   // Stub performance API
   Object.defineProperty(window, 'performance', {
     get: () => ({
