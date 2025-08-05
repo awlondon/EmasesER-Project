@@ -47,11 +47,47 @@
 
     <!-- Theme toggle JS -->
     <script>
-      document
-        .getElementById('theme-toggle')
-        .addEventListener('click', () => {
+      const toggleBtn = document.getElementById('theme-toggle');
+      if (toggleBtn) {
+        toggleBtn.addEventListener('click', () => {
           document.documentElement.classList.toggle('dark');
         });
+      }
+    </script>
+
+    <!-- LIVE SERVER INJECTION (Only needed during dev) -->
+    <script type="text/javascript">
+      if ('WebSocket' in window) {
+        (function () {
+          function refreshCSS() {
+            const sheets = Array.from(document.getElementsByTagName("link"));
+            const head = document.head;
+            for (const elem of sheets) {
+              head.removeChild(elem);
+              if (
+                elem.href &&
+                (!elem.rel || elem.rel.toLowerCase() === "stylesheet")
+              ) {
+                const url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, "");
+                elem.href =
+                  url +
+                  (url.includes("?") ? "&" : "?") +
+                  "_cacheOverride=" +
+                  new Date().valueOf();
+              }
+              head.appendChild(elem);
+            }
+          }
+          const protocol = window.location.protocol === "http:" ? "ws://" : "wss://";
+          const address = protocol + window.location.host + window.location.pathname + "/ws";
+          const socket = new WebSocket(address);
+          socket.onmessage = function (msg) {
+            if (msg.data === "reload") window.location.reload();
+            else if (msg.data === "refreshcss") refreshCSS();
+          };
+          console.log("Live reload enabled.");
+        })();
+      }
     </script>
   </body>
 </html>
