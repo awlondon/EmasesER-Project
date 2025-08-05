@@ -1,16 +1,18 @@
 // index.js — main entry point for EmasesER-Project frontend
 
-import { initApp } from './appCore.js';
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import App from './appCore.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   try {
-    const root = document.getElementById('root');
-    if (!root) {
+    const container = document.getElementById('root');
+    if (!container) {
       throw new Error("Missing #root container in index.html");
     }
 
-    // Initialize main app logic
-    initApp(root);
+    const root = createRoot(container);
+    root.render(<App />);
   } catch (err) {
     console.error("Failed to initialize app:", err);
   }
