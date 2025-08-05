@@ -16,8 +16,19 @@
     <script type="module" src="/assets/mockData.js"></script>
     <script type="module" crossorigin src="/assets/index-CytqvZGY.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-DjsUcBaW.css" />
+    <style>
+      #theme-toggle:hover {
+        background: var(--color-accent);
+      }
+    </style>
   </head>
   <body>
+    <button id="theme-toggle" style="position: fixed; top: 1rem; right: 1rem; background: var(--color-primary); color: var(--color-text);">Toggle Theme</button>
     <div id="root"></div>
+    <script>
+      document.getElementById('theme-toggle').addEventListener('click', () => {
+        document.documentElement.classList.toggle('dark');
+      });
+    </script>
   </body>
 </html>
