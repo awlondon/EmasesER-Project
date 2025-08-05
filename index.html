@@ -11,21 +11,19 @@
 
     <title>Emases</title>
 
-    <!-- PATCHES FIRST -->
+    <!-- PATCHES FIRST (disable Sentry, override navigator, block telemetry) -->
     <script src="./scripts/patch.js" defer></script>
-
-    <!-- OPTIONAL: Mock data for dev environments -->
-    <script type="module" src="./assets/mockData.js" defer></script>
-
-    <!-- MAIN APPLICATION -->
+    
+    <!-- SESAME CORE BUNDLE -->
     <script type="module" src="./assets/index.js" defer></script>
-
-    <!-- Developer Tools -->
+    
+    <!-- DEV PANEL (optional toggle UI) -->
     <script src="./assets/dev-panel.js" defer></script>
-
-    <!-- STYLES -->
+    
+    <!-- STYLESHEETS -->
     <link rel="stylesheet" href="./assets/index.css" />
     <link rel="stylesheet" href="./styles/custom.css" />
+    
 
     <!-- INLINE STYLES -->
     <style>
