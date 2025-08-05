@@ -1,0 +1,37 @@
+/* Invert background + text */
+.bg-light1, .bg-white, .bg-blue-100, .bg-gray-200 {
+  background-color: #1a1a1a !important;
+}
+.text-gray-700, .text-main, .text-black {
+  color: #f0f0f0 !important;
+}
+.text-white {
+  color: #111 !important;
+}
+
+/* Invert theme accents */
+.bg-red-400, .bg-red-100 {
+  background-color: #004040 !important;
+}
+.bg-green18, .text-green15 {
+  filter: invert(80%) saturate(60%) !important;
+}
+
+/* Font inversion */
+.font-light { font-weight: 700 !important; }
+.font-bold  { font-weight: 300 !important; }
+
+/* Remove box shadows */
+.shadow-md, .shadow-xl, .shadow-sm, .shadow-subtle {
+  box-shadow: none !important;
+}
+
+/* Square corners */
+.rounded-md, .rounded-l-md, .rounded-r-md {
+  border-radius: 0px !important;
+}
+
+/* Flatten hover contrast */
+:hover {
+  filter: brightness(90%) !important;
+}
