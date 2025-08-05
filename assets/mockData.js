@@ -1,4 +1,5 @@
 // Mock data and network stubs for offline operation
+console.log('mock fetch initialized');
 export const mockUser = { id: 1, name: 'Local User' };
 
 function mockResponse(data) {
@@ -43,6 +44,7 @@ window.XMLHttpRequest = function() {
 
 // Expose dummy login helper
 export function mockLogin() {
+  console.log('mockLogin invoked');
   return Promise.resolve({ user: mockUser });
 }
 window.mockLogin = mockLogin;
