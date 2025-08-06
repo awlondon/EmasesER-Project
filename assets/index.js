@@ -3,7 +3,7 @@
 
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import App from '/assets/appCore.js';
+import App from './appCore.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   try {
@@ -18,3 +18,4 @@ document.addEventListener('DOMContentLoaded', () => {
     console.error("Failed to initialize app:", err);
   }
 });
+
