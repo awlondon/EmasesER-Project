@@ -1,8 +1,9 @@
 // index.js — main entry point for EmasesER-Project frontend
 
+
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import App from './appCore.js';
+import App from '/assets/appCore.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   try {
